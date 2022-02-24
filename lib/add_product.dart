@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'HomeScreen.dart';
 import 'package:intl/intl.dart';
 
 class add_product extends StatefulWidget {
@@ -11,12 +12,12 @@ class add_product extends StatefulWidget {
 class _add_productState extends State<add_product> {
   bool _checkbox = false;
   TextEditingController dateinput = TextEditingController();
-
-
+  TextEditingController dateinput1 = TextEditingController();
 
   @override
   void initState() {
-    dateinput.text = ""; //set the initial value of text field
+    dateinput.text = "";
+    dateinput1.text = "";//set the initial value of text field
     super.initState();
   }
 
@@ -28,7 +29,8 @@ class _add_productState extends State<add_product> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed:(){
-
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()),
+            );
           },
           backgroundColor: Colors.blue,
           child: const Icon(Icons.check),
@@ -133,27 +135,27 @@ class _add_productState extends State<add_product> {
                         ),
                         SizedBox(height: 10.0),
                         TextField(
-                          controller: dateinput, //editing controller of this TextField
+                          controller: dateinput1, //editing controller of this TextField
                           decoration: InputDecoration(
                               icon: Icon(Icons.calendar_today), //icon of text field
                               labelText: "Exp. Date" //label text of field
                           ),
                           readOnly: true,  //set it true, so that user will not able to edit text
                           onTap: () async {
-                            var pickedDate = await showDatePicker(
+                            var pickedDate1 = await showDatePicker(
                                 context: context, initialDate: DateTime.now(),
                                 firstDate: DateTime(2000), //DateTime.now() - not to allow to choose before today.
                                 lastDate: DateTime(2101)
                             );
 
-                            if(pickedDate != null ){
-                              print(pickedDate);  //pickedDate output format => 2021-03-10 00:00:00.000
-                              String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate);
+                            if(pickedDate1 != null ){
+                              print(pickedDate1);  //pickedDate output format => 2021-03-10 00:00:00.000
+                              String formattedDate = DateFormat('yyyy-MM-dd').format(pickedDate1);
                               print(formattedDate);
 
 
                               setState(() {
-                                dateinput.text = formattedDate; //set output date to TextField value.
+                                dateinput1.text = formattedDate; //set output date to TextField value.
                               });
                             }else{
                               print("Date is not selected");
