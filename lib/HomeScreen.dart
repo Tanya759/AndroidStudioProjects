@@ -328,21 +328,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Card(
 
                               color: Color.fromARGB(255,255, 255, 255),
-                              elevation: 2.0,
+                              elevation: 5.0,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0)
+                                  borderRadius: BorderRadius.circular(10.0)
                               ),
                               child:Center(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(15.0),
                                     child: Column(
                                       children: <Widget>[
-                                        Image.asset("assets/LIST.png",width: 90.0,),
+                                        Image.asset("assets/ABOUT.png",width: 90.0,),
                                         SizedBox(
                                           height: 10.0,
                                         ),
                                         Text(
-                                          "Product List",
+                                          "About Us",
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold,
